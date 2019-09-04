@@ -6,14 +6,17 @@ generation.
 import numpy as np
 from scipy import ndimage as nd
 
-def perlin(shape, offset, frequency=15):
+def perlin(shape, offset, frequency=15, seed=1):
+    """
+    Seed and offset added so we can animate.
+    """
     shape = np.array(shape)
     zoom = shape // frequency
     pad = -shape % zoom
     width = np.linspace(0, frequency, shape[1], endpoint=False)
     height = np.linspace(0, frequency, shape[0], endpoint=False)
     coords = np.dstack(np.meshgrid(width, height)) % 1
-    np.random.seed(1) #Seed so we can animate
+    np.random.seed(seed) #Seed so we can animate
     angles = np.random.random((shape + pad) // zoom) * 2 * np.pi + offset
     random_vectors = np.dstack([np.cos(angles)**2, np.sin(angles)**2])
     grid = np.kron(random_vectors,
@@ -21,7 +24,10 @@ def perlin(shape, offset, frequency=15):
     noise = np.einsum('ijk, ijk -> ij', grid, coords)
     return nd.gaussian_filter(noise, sigma=zoom, mode='wrap')
 
-def octave_perlin(shape, offset, octaves=5, persistence=2):
+def octave_perlin(shape, offset, octaves=5, persistence=2, seed=1):
+    """
+    Seed and offset added so we can animate.
+    """
     shape = np.array(shape)
     total = 0
     frequency = 1
