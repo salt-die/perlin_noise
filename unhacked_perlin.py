@@ -69,4 +69,3 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     plt.axis('off')
     plt.imshow(perlin([100, 100]), origin='upper')
-    #plt.imshow(octave_perlin(x, y), origin='upper')
