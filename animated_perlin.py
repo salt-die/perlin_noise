@@ -1,6 +1,6 @@
 """
 A demonstration of how we can animate the perlin noise using our random vector
-generation. This might look even nicer with octave_perlin.
+generation.
 """
 
 import numpy as np
