@@ -52,8 +52,3 @@ if __name__ == "__main__":
             file_path = os.path.join(path, file_name)
             images.append(imageio.imread(file_path))
             imageio.mimsave(path + 'animated_perlin.gif', images, duration=.1)
-
-
-
-
-
