@@ -25,7 +25,6 @@ def perlin(shape, frequency=15):
     #Our grid of random normalized directional vectors
     angles = np.random.random((shape + pad) // zoom) * 2 * np.pi
     random_vectors = np.dstack([np.cos(angles)**2, np.sin(angles)**2])
-
     #Kronecker product to repeat the grid points for each internal coordinate
     #That is, if we have a grid of vectors:
     #
