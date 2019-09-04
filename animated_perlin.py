@@ -1,3 +1,8 @@
+"""
+A demonstration of how we can animate the perlin noise using our random vector
+generation. This might look even nicer with octave_perlin.
+"""
+
 import numpy as np
 from scipy import ndimage as nd
 
@@ -15,7 +20,7 @@ def perlin(shape, angles, frequency=15):
     return nd.gaussian_filter(noise, sigma=zoom, mode='wrap')
 
 if __name__ == "__main__":
-    path='/home/salt/Documents/Python/perlin/frames/'
+    path='/home/salt/Documents/Python/perlin/frames/' #Use your own path!
     shape = np.array([200, 200])
     frequency = 15
     zoom = shape // frequency
