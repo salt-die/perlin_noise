@@ -1,16 +1,16 @@
-Unhacked version:
+unhacked perlin:
 
 ![normal perlin](unhacked.png)
 
-Hacked version:
+hacked perlin:
 
 ![hacked perlin](preview.png)
 
-Animated:
+animated:
 
 ![hacked animated](animated_perlin.gif)
 
-Animated Octave Perlin:
+animated octave perlin:
 
 ![hacked animated octave](animated_octave_perlin.gif)
 
