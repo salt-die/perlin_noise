@@ -9,7 +9,7 @@ Hacked version:
 
 Animated:
 
-![hacked animated](animated_perlin.png)
+![hacked animated](animated_perlin.gif)
 
 This is a hack-y version of the perlin noise algorithm.  There's no hash
 function, we calculate random normalized vectors on-the-fly instead. These
