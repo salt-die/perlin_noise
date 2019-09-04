@@ -32,7 +32,7 @@ if __name__ == "__main__":
     plt.axis('off')
     for i, val in enumerate(np.linspace(0, 2 * np.pi, 100,)):
         plt.imsave(path + f'Frame{i:03d}.png',
-                   perlin(shape, (angles + val) % (2 * np.pi), frequency))
+                   perlin(shape, angles + val, frequency))
 
     #Stitch together
     import os
