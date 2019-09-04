@@ -1,4 +1,10 @@
-![perlin preview](preview.png)
+Unhacked version:
+![normal perlin](unhacked.png)
+
+
+Hacked version:
+
+![hacked perlin](preview.png)
 
 This is a hack-y version of the perlin noise algorithm.  There's no hash
 function, we calculate random normalized vectors on-the-fly instead. These
