@@ -2,7 +2,6 @@ Unhacked version:
 
 ![normal perlin](unhacked.png)
 
-
 Hacked version:
 
 ![hacked perlin](preview.png)
@@ -10,6 +9,10 @@ Hacked version:
 Animated:
 
 ![hacked animated](animated_perlin.gif)
+
+Animated Octave Perlin:
+
+![hacked animated octave](animated_octave_perlin.gif)
 
 This is a hack-y version of the perlin noise algorithm.  There's no hash
 function, we calculate random normalized vectors on-the-fly instead. These
