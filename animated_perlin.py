@@ -40,6 +40,7 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     plt.axis('off')
     for i, val in enumerate(np.linspace(0, 2 * np.pi, 100,)):
+        #plt.imsave(path + f'Frame{i:03d}.png', perlin([200, 200], val))
         plt.imsave(path + f'Frame{i:03d}.png', octave_perlin([200, 200], val))
 
     #Stitch together
