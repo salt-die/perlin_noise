@@ -25,31 +25,31 @@ def perlin(shape, frequency=15):
     #Our grid of random normalized directional vectors
     angles = np.random.random((shape + pad) // zoom) * 2 * np.pi
     random_vectors = np.dstack([np.cos(angles)**2, np.sin(angles)**2])
-    #Kronecker product to repeat the grid points for each internal coordinate
-    #That is, if we have a grid of vectors:
+    # We use the Kronecker product of random_vectors with an array of ones to
+    # repeat the grid points for each internal coordinate. That is, if we have
+    # a grid of vectors:
     #
-    #  [[a, b],
-    #   [c, d]]
+    #      [[a, b],
+    #       [c, d]]
     #
-    #and internal coordinates:
+    # and internal coordinates:
     #
-    #  [[[x1, y1], [x2, y1]],
-    #   [[x1. y2], [x2, y2]]]
+    #      [[[x1, y1], [x2, y1]],
+    #       [[x1. y2], [x2, y2]]]
     #
-    #Kronecker will give us:
+    # The Kronecker product will give us:
     #
-    #  [[a, a, b, b],
-    #   [a, a, b, b],
-    #   [c, c, d, d],
-    #   [c, c, d, d]]
-    #
+    #       [[a, a, b, b],
+    #        [a, a, b, b],
+    #        [c, c, d, d],
+    #        [c, c, d, d]]
     grid = np.kron(random_vectors,
                    np.ones([zoom[0], zoom[1], 1]))[pad[0]:,pad[1]:,]
 
-    #Dot product of the internal coords with random vectors
+    #Dot product of the internal coords with grid of random vectors
     noise = np.einsum('ijk, ijk -> ij', grid, coords)
 
-    #Return the smoothed noise
+    #Interpolate the noise with a filter
     return nd.gaussian_filter(noise, sigma=zoom, mode='wrap')
 
 def octave_perlin(shape, octaves=5, persistence=2):
