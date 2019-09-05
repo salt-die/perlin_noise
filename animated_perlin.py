@@ -13,11 +13,15 @@ def perlin(shape, offset, frequency=15, seed=1):
     shape = np.array(shape)
     zoom = shape // frequency
     pad = -shape % zoom
+    samples = (shape + pad) // zoom
     width = np.linspace(0, frequency, shape[1], endpoint=False)
     height = np.linspace(0, frequency, shape[0], endpoint=False)
     coords = np.dstack(np.meshgrid(width, height)) % 1
     np.random.seed(seed) #Seed so we can animate
-    angles = np.random.random((shape + pad) // zoom) * 2 * np.pi + offset
+    #Each vector rotates in random direction
+    signs = 2 * np.random.randint(0,  2, samples) - 1
+    np.random.seed(seed)
+    angles = np.random.random(samples) * 2 * np.pi + offset * signs
     random_vectors = np.dstack([np.cos(angles)**2, np.sin(angles)**2])
     grid = np.kron(random_vectors,
                    np.ones([zoom[0], zoom[1], 1]))[pad[0]:,pad[1]:,]
