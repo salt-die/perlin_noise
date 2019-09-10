@@ -61,4 +61,4 @@ if __name__ == "__main__":
         if file_name.endswith('.png'):
             file_path = os.path.join(path, file_name)
             images.append(imageio.imread(file_path))
-            imageio.mimsave(path + 'animated_perlin.gif', images, duration=.1)
+    imageio.mimsave(path + 'animated_perlin.gif', images, duration=.1)
