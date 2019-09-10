@@ -56,9 +56,7 @@ if __name__ == "__main__":
     #Stitch together
     import os
     import imageio
-    images = []
-    for file_name in sorted(os.listdir(path)):
-        if file_name.endswith('.png'):
-            file_path = os.path.join(path, file_name)
-            images.append(imageio.imread(file_path))
+    images = [imageio.imread(os.path.join(path, file_name))
+              for file_name in sorted(os.listdir(path))
+              if file_name.endswith('.png')]
     imageio.mimsave(path + 'animated_perlin.gif', images, duration=.1)
